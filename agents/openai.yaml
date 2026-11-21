@@ -1,3 +1,3 @@
 interface:
   display_name: "remotion_paper"
-  short_description: "使用 Remotion 制作英式英语配音、中文字幕的单版论文解读视频"
+  short_description: "使用 Remotion 制作英式英语配音、中英双语字幕的单个论文解读视频"

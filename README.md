@@ -4,7 +4,7 @@ English | [简体中文](README.zh-CN.md)
 
 A Codex skill for producing paper explainer videos with Remotion, grounded in source evidence and accessible to beginners. It covers paper reading, research background and motivation, scripting, narration, subtitles, animation, rendering, validation, and paper library management.
 
-The default deliverable is **one video with British English narration and Chinese subtitles**. The explanation focuses on the paper's central question, method, decisive evidence, and limitations. Aim for roughly 15 minutes and usually under 20, with flexibility for the explanation each paper needs.
+The default deliverable is **one video with British English narration and paired English and Chinese subtitles**. The explanation focuses on the paper's central question, method, decisive evidence, and limitations. Aim for roughly 15 minutes and usually under 20, with flexibility for the explanation each paper needs.
 
 This repository contains skill instructions, configuration, and reference documents. Video source code, paper PDFs, audio, assets, and rendered outputs belong in a separate production workspace. The skill instructions and reference documents are currently written in Chinese.
 
@@ -34,7 +34,7 @@ $remotion-paper "candidate_paper/Your paper title.pdf" Create an explainer video
 You can also request a specific change to an existing video:
 
 ```text
-$remotion-paper Revise the related work section of the existing paper video. Use a table to explain the prior studies' methods, contributions, and connections to this paper, and animate any key mechanisms needed for understanding.
+$remotion-paper Revise the related work section of this video. Start with what prior studies establish about the paper's central question and what remains open. Use a table to compare the evidence and animate any mechanism the viewer needs to follow.
 ```
 
 Include your intended audience, questions of interest, language preferences, or duration preferences when relevant. Explicit instructions for the current task take precedence. Targeted revisions reuse existing content that remains suitable.
@@ -44,11 +44,11 @@ Include your intended audience, questions of interest, language preferences, or 
 | Area | Approach |
 | --- | --- |
 | Source evidence | Read the specified paper version, verify its bibliographic details, and trace key claims, equations, and numerical results to their locations in the source. |
-| Background and motivation | Explain the actual contributions of key related work, the research gap, the motivation, and the paper's response. Consult the original studies that support the central gap. |
+| Background and motivation | Explain what the evidence establishes about the paper's question, what remains open, and how the paper responds. Support that assessment with original studies, including recent work that could change the conclusion. |
 | Opening and length | Keep the paper introduction and content overview to about 30 seconds in total. Aim for roughly 15 minutes overall, allocating detail according to what viewers need to understand. |
 | Script and prerequisites | Use direct, natural language. Introduce terminology, inputs, outputs, and metrics through concrete questions and examples, while preserving important conditions. |
-| Narration and subtitles | Use British English narration, starting with Ryan (`en-GB-RyanNeural`) unless otherwise specified. Chinese subtitles faithfully follow the spoken English; names and technical terms may remain in English. |
-| Main visuals | Explain with comparison tables, mechanism animations, worked examples, and data plots that support paused reading. Show references alongside the relevant content. |
+| Narration and subtitles | Use British English narration, with Ryan (`en-GB-RyanNeural`) as the default voice. Each subtitle pairs the spoken English wording with its Chinese translation. Both lines appear and disappear together. Names and technical terms may remain in English. |
+| Main visuals | Choose a visual that explains the current claim. A table can show which comparisons support a conclusion, an animation can show what changes in a mechanism, and a worked example or plot can explain a result. Keep conditions and sources readable when paused. |
 | Semantic timing | Use actual English word timings or reliable alignment results to schedule subtitles and visual actions. A single narration segment can trigger several actions. |
 | Rendering and checks | Review representative frames and short previews before rendering with Remotion. Check technical synchronisation, semantic correspondence, and visual information separately. |
 
@@ -80,7 +80,7 @@ See [Paper library management](references/library-management.md) for the detaile
 
 ## Deliverables and validation
 
-A complete production normally includes the rendered video, Chinese SRT subtitles, a cover image, the English script, chapters, an editable Remotion project, and source and validation records. The English master note at `docs/paper-notes.md` records the paper interpretation, video design, and delivery links throughout production, supporting later reviews across papers.
+A complete production normally includes the rendered video and a bilingual SRT file with the same text, timing, and line breaks as the on-screen subtitles. It also includes a cover image, the English script, chapters, an editable Remotion project, and source and validation records. The English master note at `docs/paper-notes.md` records the paper interpretation, video design, and delivery links throughout production, supporting later reviews across papers.
 
 Record the results and coverage of build checks, rendering, full-video decoding, audio synchronisation, subtitle alignment, animation semantics, main-visual information, and layout checks separately. Report human listening review separately as well. Do not claim experimental reproduction unless the paper's experiments were actually run.
 
